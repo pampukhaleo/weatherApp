@@ -48,9 +48,8 @@ const Forecast = () => {
     }
     return (
         <div>
-            <h2>че там по погоде?</h2>
+            <h1>pampukha-weather-app</h1>
             <div>
-                {/*{JSON.stringify(responseObj)}*/}
                 <Conditions responseObj={responseObj}
                             error={error} //new
                             loading={loading}/>

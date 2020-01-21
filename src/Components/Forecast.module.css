@@ -1,27 +1,38 @@
+h1 {
+    animation-name: example;
+    animation-duration: 10s;
+    color: black;
+}
+@keyframes example {
+    from {color: red;}
+    to {color: yellow;}
+}
+
 .TextInput {
     font-size: large;
-    border: 1px solid #EEEEEE;
-    padding: 5px;
+    border: 3px solid #EEEEEE;
+    padding: 9px;
     border-radius: 3px;
     display: block;
-    margin: 5px auto;
+    margin: 15px auto;
 }
+
 .TextInput:focus {
     outline: none;
-    border-color: #719ECE;
-    box-shadow: 0 0 10px rgb(50, 100, 153);
+    border-color: #3b68ce;
+    box-shadow: 0 0 25px rgb(50, 100, 153);
 }
 .Radio {
     font-size: small;
+    margin: 5px
 }
 .Button {
     display: block;
-    margin: 10px auto;
     padding: .5rem;
-    font-size: 1em;
+    font-size: 1.1em;
     background: darkcyan;
-    border-radius: 5px;
+    border-radius: 9px;
     color: white;
     cursor: pointer;
-    margin: 5px auto;
+    margin: 15px auto;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Conditions = (props) => {
-    // console.log(props);
     return (
         <div>
             {props.error && <small>Please enter a valid city.</small>}
