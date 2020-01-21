@@ -24,15 +24,12 @@ h1 {
 }
 .Radio {
     font-size: small;
-    margin: 5px
 }
-.Button {
-    display: block;
-    padding: .5rem;
-    font-size: 1.1em;
-    background: darkcyan;
-    border-radius: 9px;
-    color: white;
-    cursor: pointer;
-    margin: 15px auto;
-}
+/*.Button {*/
+/*    padding: .5rem;*/
+/*    font-size: 1.1em;*/
+/*    background: darkcyan;*/
+/*    border-radius: 9px;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*}*/

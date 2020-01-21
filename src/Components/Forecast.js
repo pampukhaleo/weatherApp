@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Conditions from "./Conditions";
 import s from './Forecast.module.css';
+import Button from "@material-ui/core/Button";
 
 
 
@@ -85,8 +86,11 @@ const Forecast = () => {
                     />
                     Fahrenheit
                 </label>
-                <button type="submit" className={s.Button}>Получить результат</button>
+                <Button type="submit" variant="contained" color="primary" style={{display: "block", margin: "10px auto"}}>
+                    Получить результат
+                </Button>
             </form>
+            {/*<ContainedButtons/>*/}
         </div>
     )
 }
