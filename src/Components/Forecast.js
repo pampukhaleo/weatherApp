@@ -63,7 +63,7 @@ const Forecast = () => {
     }
     return (
         <div>
-            <h1 className={s.title}>pampukha-weather-app</h1>
+            <h3 className={s.title}>pampukha-weather-app</h3>
             <div>
                 <ConditionsMaterialUI responseObj={responseObj}
                                       error={error}
