@@ -2,8 +2,22 @@ import React, {useState} from 'react';
 import Conditions from "./Conditions";
 import s from './Forecast.module.css';
 import Button from "@material-ui/core/Button";
+import Radio from "@material-ui/core/Radio";
+import {green} from "@material-ui/core/colors";
+import {withStyles} from "@material-ui/styles";
+import TextField from "@material-ui/core/TextField";
+import ConditionsMaterialUI from "./ConditionsMaterialUI";
+import tempSign from '../img/temperature.png'
 
-
+const GreenRadio = withStyles({
+    root: {
+        color: green[400],
+        '&$checked': {
+            color: green[600],
+        },
+    },
+    checked: {},
+})(props => <Radio color="default" {...props} />);
 
 const Forecast = () => {
 
@@ -49,40 +63,35 @@ const Forecast = () => {
     }
     return (
         <div>
-            <h1>pampukha-weather-app</h1>
+            <h1 className={s.title}>pampukha-weather-app</h1>
             <div>
-                <Conditions responseObj={responseObj}
-                            error={error} //new
-                            loading={loading}/>
+                <ConditionsMaterialUI responseObj={responseObj}
+                                      error={error}
+                                      loading={loading}/>
             </div>
-            <form onSubmit={getForecast}>
-                <input
-                    type="text"
-                    placeholder="Enter City"
-                    maxLength="50"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    className={s.TextInput}
-                />
+            <form className={s.form} onSubmit={getForecast}>
+                <TextField id="standard-basic"
+                           label="Enter City"
+                           onChange={(e) => setCity(e.target.value)}
+                           maxLength="50"
+                           style={{display: "block", margin: "13px auto", width: "194px"}}/>
                 <label>
-                    <input
-                        type="radio"
-                        name="units"
+                    <GreenRadio
                         checked={unit === "metric"}
-                        value="metric"
                         onChange={(e) => setUnit(e.target.value)}
-                        className={s.Radio}
+                        value="metric"
+                        color="default"
+                        name="units"
                     />
                     Celcius
                 </label>
                 <label>
-                    <input
-                        type="radio"
-                        name="units"
-                        checked={unit === "imperial"}
-                        value="imperial"
+                    <GreenRadio
+                        checked={unit === 'imperial'}
                         onChange={(e) => setUnit(e.target.value)}
-                        className={s.Radio}
+                        value="imperial"
+                        color="default"
+                        name="units"
                     />
                     Fahrenheit
                 </label>
@@ -90,7 +99,6 @@ const Forecast = () => {
                     Получить результат
                 </Button>
             </form>
-            {/*<ContainedButtons/>*/}
         </div>
     )
 }

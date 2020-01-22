@@ -3,7 +3,8 @@ import React from 'react';
 const Conditions = (props) => {
     return (
         <div>
-            {props.error && <small>Please enter a valid city.</small>}
+
+            {props.error && <small style={{color: "red", fontWeight: "bold"}}>SOME ERROR! TRY ENTER VALID CITY NAME</small>}
             {props.loading && <div>Loading...</div>}
             {props.responseObj.cod === 200 &&
             <div>
@@ -19,4 +20,5 @@ const Conditions = (props) => {
         </div>
     )
 }
- export default Conditions
+
+export default Conditions
