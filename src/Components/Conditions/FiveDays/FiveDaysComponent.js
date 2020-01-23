@@ -53,7 +53,8 @@ const FiveDaysComponent = () => {
                 return setResponseObj(response.list)
             })
     }
-    // console.log(responseObj)
+
+
     return (
         <div>
             <Button variant="contained" color="primary"
@@ -61,14 +62,17 @@ const FiveDaysComponent = () => {
                     onClick={getWeather}>
                 Get Kyiv 5 Days weather
             </Button>
-            {responseObj.length > 1 && responseObj.forEach(element => {
-                let newArr = element + 1
-                console.log(element);
+            {responseObj.length > 1 && responseObj.map(element => {
+                let firstDate = element.dt
+                // console.log(firstDate);
+                // console.log(element);
+                element.dt === firstDate && console.log(element)
                 return <div>
                     <ConditionsFiveDays responseObj={element}/>
                 </div>
-            })
-            }
+            })}
+
+
         </div>
     )
 }
