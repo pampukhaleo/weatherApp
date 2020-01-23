@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import Conditions from "./Conditions";
+import Conditions from "../Conditions";
 import s from './Forecast.module.css';
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
 import {green} from "@material-ui/core/colors";
 import {withStyles} from "@material-ui/styles";
 import TextField from "@material-ui/core/TextField";
-import ConditionsMaterialUI from "./ConditionsMaterialUI";
-import tempSign from '../img/temperature.png'
+import ConditionsMaterialUI from "../Conditions/Oneday/ConditionsOneDay";
+import tempSign from '../../img/temperature.png'
 
 const GreenRadio = withStyles({
     root: {

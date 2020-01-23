@@ -1,11 +1,10 @@
 import React, {useState} from "react";
-import s from "../Forecast.module.css";
-import ConditionsMaterialUI from "../ConditionsMaterialUI";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {withStyles} from "@material-ui/styles";
 import {green} from "@material-ui/core/colors";
 import Radio from "@material-ui/core/Radio";
+
+import ConditionsFiveDays from "./ConditionsFiveDays";
 
 const GreenRadio = withStyles({
     root: {
@@ -18,6 +17,13 @@ const GreenRadio = withStyles({
 })(props => <Radio color="default" {...props} />);
 
 const FiveDaysComponent = () => {
+
+    let [date, setDate] = useState(new Date())
+
+    let TodayDateHours = date.getHours()
+
+    // console.log(TodayDateHours);
+
     //
     // let [city, setCity] = useState('Kyiv');
     // let [unit, setUnit] = useState('metric');
@@ -25,7 +31,7 @@ const FiveDaysComponent = () => {
     // // let [error, setError] = useState(false);
     let [loading, setLoading] = useState(false);
 
-    let [responseObj, setResponseObj] = useState({});
+    let [responseObj, setResponseObj] = useState([]);
     let [daysObj, setDaysObj] = useState({});
 
     // const uriEncodedCity = encodeURIComponent(city);
@@ -43,15 +49,11 @@ const FiveDaysComponent = () => {
             }
         }).then(response => response.json())
             .then(response => {
-                setResponseObj(response)
                 setLoading(false);
-                // return console.log(response.list)
+                return setResponseObj(response.list)
             })
-}
-    function getDays() {
-        setDaysObj(responseObj.list)
-        return console.log(daysObj);
     }
+    // console.log(responseObj)
     return (
         <div>
             <Button variant="contained" color="primary"
@@ -59,7 +61,13 @@ const FiveDaysComponent = () => {
                     onClick={getWeather}>
                 Get Kyiv 5 Days weather
             </Button>
-            {loading && getDays
+            {responseObj.length > 1 && responseObj.forEach(element => {
+                let newArr = element + 1
+                console.log(element);
+                return <div>
+                    <ConditionsFiveDays responseObj={element}/>
+                </div>
+            })
             }
         </div>
     )
